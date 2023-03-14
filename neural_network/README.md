@@ -35,4 +35,20 @@
 
 ## 신경망으로 MNIST 분류
 ![p8](./img/p8.png)
+<br>
+<br>
+<br>
+![p8](./img/p9.png)
+<br>
+<br>
+<br>
+![p8](./img/p10.png)
+<br>
+<br>
+<br>
+![p8](./img/p11.png)
+<br>
+<br>
+<br>
+![p8](./img/p12.png)
 
