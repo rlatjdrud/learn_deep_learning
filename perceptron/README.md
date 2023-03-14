@@ -1,6 +1,7 @@
 ## 퍼셉트론
 ![p1](./img/p1.png)
 
+- 퍼셉트론(AND 연산)
 ![p2](./img/p2.png)<br>
 
 ![p3](./img/p3.png)<br>
