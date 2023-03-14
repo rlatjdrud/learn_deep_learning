@@ -5,7 +5,8 @@
 ![p4](./img/p4.png)
 ![p5](./img/p5.png)
 ![p6](./img/p6.png)
+![p7](./img/p7.png)
 
 ## 신경망으로 MNIST 분류
-![p7](./img/p7.png)
+![p8](./img/p8.png)
 
