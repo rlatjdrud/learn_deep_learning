@@ -31,8 +31,10 @@ def numerical_gradient(f, X):
         return _numerical_gradient_no_batch(f, X)
     else: ##x = 100x2 행렬
         grad = np.zeros_like(X) ## 100x2 크기의 영행렬        
-        for idx, x in enumerate(X): ## idx에 현재 루프의 수가 들어가고 x에 [x0,x2]가 들어감
+        for idx, x in enumerate(X): ## idx에 루프횟수가 들어가고 x에 [x0,x1]가 들어감
             	grad[idx] = _numerical_gradient_no_batch(f, x)
+		
+	
         return grad
 
 
@@ -43,5 +45,30 @@ def function_2(x):
     else:
         return np.sum(x**2, axis=1)
 
-a=numerical_gradient(function_2,np.array([[3.0,4.0],[5.0,6.0]]))
-print(a)
+
+def tangent_line(f, x):
+    d = numerical_gradient(f, x)
+    print(d)
+    y = f(x) - d*x
+    return lambda t: d*t + y
+     
+if __name__ == '__main__':
+    x0 = np.arange(-2, 2.5, 0.25)
+    x1 = np.arange(-2, 2.5, 0.25)
+    X, Y = np.meshgrid(x0, x1)
+    
+    X = X.flatten()
+    Y = Y.flatten()
+    
+    grad = numerical_gradient(function_2, np.array([X, Y]) )
+    
+    plt.figure()
+    plt.quiver(X, Y, -grad[0], -grad[1],  angles="xy",color="#666666")#,headwidth=10,scale=40,color="#444444")
+    plt.xlim([-2, 2])
+    plt.ylim([-2, 2])
+    plt.xlabel('x0')
+    plt.ylabel('x1')
+    plt.grid()
+    plt.legend()
+    plt.draw()
+    plt.show()
