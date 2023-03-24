@@ -42,7 +42,11 @@ for i in range(0,len(x),batch_size) :
 	x_batch = x[i:i+batch_size]
 	y_batch = predict(network,x_batch) ##100x784 -> 100x50 -> 100x100 -> 100x10
 	p = np.argmax(y_batch,axis=1)
-	accuracy_cnt += np.sum(p == t[i:i+batch_size])
+	accuracy_cnt += np.sum(p == t[i:i+batch_size]) 
+
+##(p == t[i:i+batch_size])에서 100(batch_size)개 중 라벨값과 예측한 인덱스가 일치한 인덱스는 True로 바뀐다. 
+##그러므로 총 100열의 True,false로 구성된 1차원행렬이된다. 
+##그리고 이 행렬을 np.sum을 사용하면 true 갯수가 나온다
 
 print(f"Accuracy : {accuracy_cnt/len(x)}")
 #print("Accuracy :"+str(float(accuracy_cnt)/len(x)))	
